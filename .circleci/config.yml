@@ -1,8 +1,24 @@
 version: 2.1
+
 orbs:
   cypress: cypress-io/cypress@1.19.1
+  percy: percy/agent@0.1.2
+
+jobs:
+ run_tests:
+   parallelism: 1
+   steps:
+     - attach_workspace:
+         at: .
+     - run: echo "your tests run here"
 
 workflows:
     build-and-test:
       jobs:
         - cypress/run
+    test:
+      jobs:
+        - run_tests
+        - percy/finalize_all:
+          requires:
+           - run_tests
