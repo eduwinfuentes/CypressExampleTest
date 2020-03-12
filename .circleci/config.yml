@@ -6,4 +6,3 @@ workflows:
     build-and-test:
       jobs:
         - cypress/run
-            record: true
