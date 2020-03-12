@@ -16,8 +16,6 @@ workflows:
     build-and-test:
       jobs:
         - cypress/run
-    test:
-      jobs:
         - run_tests
         - percy/finalize_all:
           requires:
