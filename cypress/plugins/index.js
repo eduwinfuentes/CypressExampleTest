@@ -26,3 +26,5 @@ let percyHealthCheck = require('@percy/cypress/task')
 module.exports = (on, config) => {
   on("task", percyHealthCheck);
 };
+
+require('@applitools/eyes-cypress')(module);
